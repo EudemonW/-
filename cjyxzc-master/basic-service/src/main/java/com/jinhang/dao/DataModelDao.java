@@ -34,6 +34,7 @@ public class DataModelDao {
 
     public void update( DataModel dataModel )
     {
+        System.out.println("第一次修改");
         dataModelMapper.update( dataModel);
     }
 
