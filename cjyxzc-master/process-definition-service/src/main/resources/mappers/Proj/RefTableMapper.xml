@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.RefTableMapper">
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.process.model.RefTable">
+        select id,data_model_id,entity_table_name,temp_entity_table_name from t_process_node_ref_table where id=#{id}
+    </select>
+
+    <insert id="AddRefTable" parameterType="com.jinhang.process.model.RefTable">
+        insert into t_process_node_ref_table(id, data_model_id, entity_table_name, temp_entity_table_name)
+        values (#{id},#{data_model_id},#{entity_table_name},#{temp_entity_table_name})
+    </insert>
+
+</mapper>

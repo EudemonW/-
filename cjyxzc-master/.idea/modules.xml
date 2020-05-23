@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/basic-service/basic-service.iml" filepath="$PROJECT_DIR$/basic-service/basic-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjyxzc.iml" filepath="$PROJECT_DIR$/cjyxzc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-module/common-module.iml" filepath="$PROJECT_DIR$/common-module/common-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/main-service/main-service.iml" filepath="$PROJECT_DIR$/main-service/main-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/process-definition-service/process-definition-service.iml" filepath="$PROJECT_DIR$/process-definition-service/process-definition-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/process-ins-service/process-ins-service.iml" filepath="$PROJECT_DIR$/process-ins-service/process-ins-service.iml" />
+    </modules>
+  </component>
+</project>

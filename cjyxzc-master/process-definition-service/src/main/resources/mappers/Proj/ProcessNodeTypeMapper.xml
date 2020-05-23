@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.ProcessNodeTypeMapper">
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.process.model.MapInfo">
+        select id,process_node_category_id,process_node_category_name,process_node_type_id,process_node_type_name from d_process_node_type where id=#{id}
+    </select>
+
+</mapper>

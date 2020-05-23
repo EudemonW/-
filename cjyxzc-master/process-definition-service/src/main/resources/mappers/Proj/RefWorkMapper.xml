@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.RefWorkMapper">
+
+    <select id="findAllByRefId" parameterType="String" resultType="com.jinhang.process.model.RefWork">
+        select id,ref_id,data_model_id,meta_id,work_id from t_process_node_ref_work where ref_id=#{ref_id}
+    </select>
+
+    <insert id="AddRefWorks">
+        INSERT INTO t_process_node_ref_work
+        (id,ref_id,data_model_id,meta_id,work_id)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.ref_id},#{item.data_model_id},#{item.meta_id},#{item.work_id})
+        </foreach>
+    </insert>
+
+    <delete id="DeleteById" parameterType="String" >
+        delete from t_process_node_ref_work where id=#{id}
+    </delete>
+
+    <delete id="DeleteByRefId" parameterType="String" >
+        delete from t_process_node_ref_work where ref_id=#{ref_id}
+    </delete>
+
+</mapper>

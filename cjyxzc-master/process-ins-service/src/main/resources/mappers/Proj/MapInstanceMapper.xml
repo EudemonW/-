@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.MapInstanceMapper">
+    <insert id="addMapInstances">
+        INSERT INTO t_map_instance
+        (id,map_id,process_id,map_ins_id,token_id)
+        VALUES
+
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.map_id},#{item.process_id},#{item.map_ins_id},#{item.token_id})
+        </foreach>
+    </insert>
+
+    <insert id="EntityBatchInsert" statementType="STATEMENT">
+        insert into ${tableName} (${fields}) values
+        <foreach collection="datas" item="item" separator=",">
+            (${item})
+        </foreach>
+    </insert>
+
+</mapper>

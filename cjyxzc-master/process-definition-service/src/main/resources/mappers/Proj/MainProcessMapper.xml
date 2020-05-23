@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.MainProcessMapper">
+
+    <delete id="DeleteMainProcessById" parameterType="String" >
+        delete from  t_main_process where id=#{id}
+    </delete>
+
+    <insert id="AddMainProcess" parameterType="com.jinhang.process.model.MainProcess">
+        insert into t_main_process(id,begin_node_id,preprocess_node_id,data_fusion_node_id,calc_node_id,end_node_id) value(#{id},#{begin_node_id},#{preprocess_node_id},#{data_fusion_node_id},#{calc_node_id},#{end_node_id})
+    </insert>
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.process.model.MapInfo">
+        select id,begin_node_id,preprocess_node_id,data_fusion_node_id,calc_node_id,end_node_id from t_main_process where id=#{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.ModelMetaAndTableFiledMapper">
+    <insert id="addMetaAndTableFileds">
+        INSERT INTO r_map_model_field
+        (id,map_id,data_model_id,meta_id,source_table_name,source_table_field)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.map_id},#{item.data_model_id},#{item.meta_id},#{item.source_table_name},#{item.source_table_field})
+        </foreach>
+    </insert>
+
+    <delete id="deleteById" >
+        delete from r_map_model_field where proj_id=#{proj_id} and user_id=#{user_id}
+    </delete>
+
+    <select id="findAll" resultType="com.jinhang.process.model.ModelMetaAndTableFiled">
+        select id,map_id,data_model_id,meta_id,source_table_name,source_table_field from r_map_model_field
+    </select>
+
+    <select id="findAllByMapId" resultType="com.jinhang.process.model.ModelMetaAndTableFiled">
+        select id,map_id,data_model_id,meta_id,source_table_name,source_table_field from r_map_model_field where map_id=#{map_id}
+    </select>
+
+    <select id="findDtoByMapId" resultType="com.jinhang.process.DTO.RelMetaAndTableFiledDTO">
+        select r.id,r.map_id,r.data_model_id,t.fkey,r.source_table_name,r.source_table_field from r_map_model_field r left join t_meta t on t.id = r.meta_id where r.map_id=#{map_id}
+    </select>
+
+</mapper>

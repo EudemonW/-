@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.RelDataModelAndMetaMapper">
+
+    <insert id="batchInsert">
+        INSERT INTO r_datamodel_meta
+        (id,datamodel_id,meta_id,status)
+        VALUES
+
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.datamodel_id},#{item.meta_id},#{item.status})
+        </foreach>
+    </insert>
+
+    <delete id="delete" >
+        delete from r_datamodel_meta where datamodel_id=#{datamodel_id} and meta_id=#{meta_id}
+    </delete>
+</mapper>

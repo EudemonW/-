@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.MetaMapper">
+
+    <select id="findAll" resultType="com.jinhang.model.Meta">
+        select id,fkey,caption,type,length,create_time,create_by,update_time,update_by from t_meta
+    </select>
+
+    <select id="findAllByDataModelId" parameterType="String" resultType="com.jinhang.model.Meta">
+        select meta.id,fkey,caption,type,length,create_time,create_by,update_time,update_by from t_meta as meta left join r_datamodel_meta as rl on meta.id = rl.meta_id where rl.datamodel_id=#{id}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.model.Meta">
+        select id,fkey,caption,type,length,create_time,create_by,update_time,update_by from t_meta where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.jinhang.model.Meta">
+        insert into t_meta(id,fkey,caption,type,length,create_by,update_by) value(#{id},#{fkey},#{caption},#{type},#{length},#{create_by},#{update_by})
+    </insert>
+
+    <update id="update" parameterType="com.jinhang.model.Meta">
+        update t_meta set fkey=#{fkey},caption=#{caption},type=#{type},length=#{length},update_by=#{update_by} where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String" >
+        delete from t_meta where id=#{id}
+    </delete>
+
+</mapper>

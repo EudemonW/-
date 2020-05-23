@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    source:
+      jdbc-url: jdbc:mysql://192.168.0.20:3306/cjyxzc_src?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    proj:
+      jdbc-url: jdbc:mysql://192.168.0.20:3306/BigDataIntelligence?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: root123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: cjyxzc
+
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  reqHost: 192.168.0.20   #nginx访问地址
+  reqPort: 18625
+  thumb-image:             #缩略图生成参数
+    width: 150
+    height: 150
+  web-server-url: http://192.168.0.20:18625/
+  tracker-list: 192.168.0.20:22122
+
+server:
+  port: 18624
+
+mybatis:
+  mapper-locations: classpath*:mappers/*.xml

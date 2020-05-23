@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.ProjMapper">
+
+    <select id="findAll" resultType="com.jinhang.model.Project">
+        select id,proj_name,proj_desc,dept_id,create_time,create_by,update_time,update_by from t_project
+    </select>
+
+    <select id="findAllByDeptId" parameterType="String" resultType="com.jinhang.model.Project">
+        select id,proj_name,proj_desc,dept_id,create_time,create_by,update_time,update_by from t_project where dept_id=#{id}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.model.Project">
+        select id,proj_name,proj_desc,dept_id,create_time,create_by,update_time,update_by from t_project where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.jinhang.model.Project">
+        insert into t_project(id,proj_name,proj_desc,dept_id,create_by,update_by) value(#{id},#{proj_name},#{proj_desc},#{dept_id},#{create_by},#{update_by})
+    </insert>
+
+    <update id="update" parameterType="com.jinhang.model.Project">
+        update t_project set proj_name=#{proj_name},proj_desc=#{proj_desc},dept_id=#{dept_id},update_by=#{update_by} where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String" >
+        delete from t_project where id=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.DataModelMapper">
+
+    <select id="findAll" resultType="com.jinhang.model.DataModel">
+        select id,model_name,model_desc,proj_id,model_type,create_time,create_by,update_time,update_by,status from t_datamodel
+    </select>
+
+    <select id="findAllByProjId" parameterType="String" resultType="com.jinhang.model.DataModel">
+        select id,model_name,model_desc,proj_id,model_type,create_time,create_by,update_time,update_by,status from t_datamodel where proj_id=#{id}
+    </select>
+
+    <select id="findAllByProjIdAndModelType" resultType="com.jinhang.model.DataModel">
+        select id,model_name,model_desc,proj_id,model_type,create_time,create_by,update_time,update_by,status from t_datamodel where proj_id=#{projid} and model_type=#{modeltype}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.model.DataModel">
+        select id,model_name,model_desc,proj_id,model_type,create_time,create_by,update_time,update_by,status from t_datamodel where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.jinhang.model.DataModel">
+        insert into t_datamodel(id,model_name,model_desc,proj_id,model_type,create_by,update_by,status) value(#{id},#{model_name},#{model_desc},#{proj_id},#{model_type},#{create_by},#{update_by},#{status})
+    </insert>
+
+    <update id="update" parameterType="com.jinhang.model.DataModel">
+        update t_datamodel set model_name=#{model_name},model_desc=#{model_desc},proj_id=#{proj_id},model_type=#{model_type},update_by=#{update_by},status=#{status} where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="String" >
+        delete from t_datamodel where id=#{id}
+    </delete>
+
+    <update id="createTable">
+        ${sql}
+    </update>
+
+</mapper>

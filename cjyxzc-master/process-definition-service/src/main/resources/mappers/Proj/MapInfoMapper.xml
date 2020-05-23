@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.MapInfoMapper">
+    <select id="findAll" resultType="com.jinhang.process.model.MapInfo">
+        select id,map_name,map_desc,process_id,data_model_id,source_table_name,entity_table_name,create_time,create_by,update_time,update_by,status from t_map
+    </select>
+
+    <select id="findAllByProcessId" parameterType="String" resultType="com.jinhang.process.model.MapInfo">
+        select id,map_name,map_desc,process_id,data_model_id,source_table_name,entity_table_name,create_time,create_by,update_time,update_by,status from t_map where process_id=#{process_id}
+    </select>
+
+    <select id="findById" parameterType="String" resultType="com.jinhang.process.model.MapInfo">
+        select id,map_name,map_desc,process_id,data_model_id,source_table_name,entity_table_name,create_time,create_by,update_time,update_by,status from t_map where id=#{id}
+    </select>
+
+    <insert id="addMapInfo" parameterType="com.jinhang.process.model.MapInfo">
+        insert into t_map(id,map_name,map_desc,process_id,data_model_id,source_table_name,entity_table_name,create_by,update_by,status) value(#{id},#{map_name},#{map_desc},#{process_id},#{data_model_id},#{source_table_name},#{entity_table_name},#{create_by},#{update_by},#{status})
+    </insert>
+
+    <update id="updateMapInfo" parameterType="com.jinhang.process.model.MapInfo">
+        update t_map set map_name=#{map_name},map_desc=#{map_desc},data_model_id=#{data_model_id},source_table_name=#{source_table_name},update_by=#{update_by},status=#{status} where id=#{id}
+    </update>
+
+    <delete id="deleteMapInfoById" parameterType="String" >
+        delete from t_map where id=#{id}
+    </delete>
+
+
+</mapper>

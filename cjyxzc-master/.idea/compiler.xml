@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="basic-service" />
+        <module name="common-module" />
+        <module name="main-service" />
+        <module name="process-definition-service" />
+        <module name="process-ins-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="basic-service" target="1.8" />
+      <module name="cjyxzc" target="1.8" />
+      <module name="common-module" target="1.8" />
+      <module name="main-service" target="1.8" />
+      <module name="process-definition-service" target="1.8" />
+      <module name="process-ins-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="basic-service" options="-parameters" />
+      <module name="common-module" options="-parameters" />
+      <module name="main-service" options="-parameters" />
+      <module name="process-definition-service" options="-parameters" />
+      <module name="process-ins-service" options="-parameters" />
+    </option>
+  </component>
+</project>

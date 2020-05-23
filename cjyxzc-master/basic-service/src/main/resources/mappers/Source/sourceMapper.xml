@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Source.SourceMapper">
+
+    <select id="listTable" resultType="java.util.Map">
+        select * from information_schema.TABLES where TABLE_SCHEMA=(select database())
+    </select>
+
+    <select id="listTableColumn" resultType="java.util.Map">
+        select * from information_schema.COLUMNS where TABLE_SCHEMA = (select database()) and TABLE_NAME=#{tableName}
+    </select>
+
+    <select id="getDatasByFields" resultType="java.util.Map" statementType="STATEMENT">
+        select ${fields} from ${tableName}
+    </select>
+
+    <select id="showCreateTableSQL" resultType="java.util.Map" statementType="STATEMENT">
+        show create table ${tableName}
+    </select>
+
+</mapper>

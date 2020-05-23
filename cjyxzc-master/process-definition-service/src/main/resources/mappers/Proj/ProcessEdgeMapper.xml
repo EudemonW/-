@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinhang.mappers.Proj.ProcessEdgeMapper">
+
+    <insert id="AddProcessEdges">
+        INSERT INTO t_process_edge
+        (id,process_id,edge_desc,process_node_from,process_node_to)
+        VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.process_id},#{item.edge_desc},#{item.process_node_from},#{item.process_node_to})
+        </foreach>
+    </insert>
+
+
+    <select id="findAllByProcessId" parameterType="String" resultType="com.jinhang.process.model.ProcessEdge">
+        select id,process_id,edge_desc,process_node_from,process_node_to from t_process_edge where process_id=#{process_id}
+    </select>
+
+    <delete id="DeleteByProcessId" parameterType="String" >
+        delete from t_process_edge where process_id=#{process_id}
+    </delete>
+
+</mapper>
